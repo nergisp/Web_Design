@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Servers</title>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="http://rnapipeline.edicogenome.com/content/style/style.css">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+
+
+</head>
+
+<body>
+	<div id="id01" class="modal">
+		<span onclick="document.getElementById('id01').style.display='none'"
+		class="close" title="Close Modal">&times;</span>
+			<div class="container">
+				<input type="text" placeholder="Enter Your Email" name="email" required>
+				<button type="button" class="btn btn-success" id='requestServer'>Send</button>
+			</div>
+	</div>
+	<div id="id02" class="modal">
+		<span onclick="document.getElementById('id02').style.display='none'"
+		class="close" title="Close Modal">&times;</span>
+		<form class="modal-content">
+			<div class="container">
+				<h1>Email Sent!</h1>
+			</div>
+		</form>
+	</div>
+	<div class="container-fluid">
+		<div class="row" style="background-color:#6D5297;color:white">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+							<h2 class="">Server Details</h2>
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8" style="margin-top:15px;">
+					<table class="table table-stripped" id="server_table">
+						<thead>
+							<tr>
+								<th>Server</th>
+								<th>Description</th>
+								<th>User</th>
+								<th>Type</th>
+								<th>Available Around</th>
+								<th>Shareable</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="serverlist">
+						</tbody>
+					</table>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4" style="margin-top:87px;">
+					<div class="form-group">
+						<small class="red none" id="var_Errors"></small>
+					</div>
+					<div class="form-group">
+						<label>Server <small class='red'>*</small></label>
+						<input type="text" class="form-control" name="name" placeholder="Server" readonly/>
+						<small class="red none" id="val_Server"></small>
+					</div>
+					<div class="form-group">
+						<label>Description <small class='red'>*</small></label>
+						<textarea type="text" class="form-control" name="description" placeholder="Server Description" style="min-height:100px; max-height:100px;" ></textarea>
+						<small class="red none" id="val_description"></small>
+					</div>
+					<div class="form-group">
+						<label>User <small class='red'>*</small></label>
+						<input type="text" class="form-control" name="user" placeholder="Enter email" />
+						<small class="red none" id="val_user"></small>
+					</div>
+					<div class="form-group">
+						<label>Available Around <small class='red'>*</small></label>
+						<input type="text" class="form-control" name="expectedFreeDateTime" id="expected_Datetime" readonly/>
+						<small class="red none" id="val_expectedFreeDateTime"></small>
+					</div>
+					<div class="form-group">
+						<label><input type='checkbox' id='checkbox' name= 'is_shared'>   Shareable</label>
+					</div>
+					<button type="button" id="btnSubmit" class="btn btn-success">Update</button>
+					<div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:15px;">
+						<label><span class="available-green" style="padding:0 10px; border-radius:5px;margin-right:10px;"></span>Server may be free</label>
+					</div>
+				</div>
+			</div>
+	</div>
+	<script src="index.js"></script>
+	<script>
+		var modal = document.getElementById('id01');
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+	</script>
+	<script>
+		var modal = document.getElementById('id02');
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+	</script>
+</body>
+</html>
